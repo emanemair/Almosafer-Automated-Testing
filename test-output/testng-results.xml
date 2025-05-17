@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="6" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-05-17T14:14:54 EET" name="Default suite" finished-at="2025-05-17T14:15:00 EET" duration-ms="6031">
+    <groups>
+    </groups>
+    <test started-at="2025-05-17T14:14:54 EET" name="Default test" finished-at="2025-05-17T14:15:00 EET" duration-ms="6031">
+      <class name="AlmosaferAutomatedTesting">
+        <test-method is-config="true" signature="mySetup()[pri:0, instance:AlmosaferAutomatedTesting@10ded6a9]" started-at="2025-05-17T14:14:54 EET" name="mySetup" finished-at="2025-05-17T14:14:57 EET" duration-ms="3118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- mySetup -->
+        <test-method signature="SelectCountry()[pri:1, instance:AlmosaferAutomatedTesting@10ded6a9]" started-at="2025-05-17T14:14:57 EET" name="SelectCountry" finished-at="2025-05-17T14:15:00 EET" duration-ms="2587" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SelectCountry -->
+        <test-method signature="CheckCurrency()[pri:3, instance:AlmosaferAutomatedTesting@10ded6a9]" started-at="2025-05-17T14:15:00 EET" name="CheckCurrency" finished-at="2025-05-17T14:15:00 EET" duration-ms="94" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckCurrency -->
+        <test-method signature="CheckContactNumber()[pri:4, instance:AlmosaferAutomatedTesting@10ded6a9]" started-at="2025-05-17T14:15:00 EET" name="CheckContactNumber" finished-at="2025-05-17T14:15:00 EET" duration-ms="26" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckContactNumber -->
+        <test-method signature="VerifyQitafLogoInFooter()[pri:5, instance:AlmosaferAutomatedTesting@10ded6a9]" started-at="2025-05-17T14:15:00 EET" name="VerifyQitafLogoInFooter" finished-at="2025-05-17T14:15:00 EET" duration-ms="52" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyQitafLogoInFooter -->
+        <test-method signature="HotelSearchTabIsNotSelectedByDefault()[pri:6, instance:AlmosaferAutomatedTesting@10ded6a9]" started-at="2025-05-17T14:15:00 EET" name="HotelSearchTabIsNotSelectedByDefault" finished-at="2025-05-17T14:15:00 EET" duration-ms="20" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- HotelSearchTabIsNotSelectedByDefault -->
+      </class> <!-- AlmosaferAutomatedTesting -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
