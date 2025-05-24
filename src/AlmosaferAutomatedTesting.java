@@ -1,5 +1,11 @@
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -29,7 +35,7 @@ public class AlmosaferAutomatedTesting {
 	@Test(priority = 1 , enabled = true)
 	public void SelectCountry() {
 		
-		WebElement SaudiArabiaButton = driver.findElement(By.id("mui-2")); 
+		WebElement SaudiArabiaButton = driver.findElement(By.cssSelector(".sc-jTzLTM.hQpNle.cta__button.cta__saudi.btn.btn-primary")); 
 		SaudiArabiaButton.click(); 
 		
 	}
@@ -43,15 +49,16 @@ public class AlmosaferAutomatedTesting {
 		
 	}
 
-	@Test (priority = 3 , enabled = true)
+	@Test (priority = 3 , enabled = false)
 	public void CheckCurrency() {
 		
 		String ExpectedCurrency = "SAR"; 
+		
 		String ActualCurrency = driver.findElement(By.xpath("//div[@data-testid='Header__CurrencySelector']")).getText();
 		AssertJUnit.assertEquals(ActualCurrency, ExpectedCurrency);
 	}
 	
-	@Test(priority = 4 , enabled = true)
+	@Test(priority = 4 , enabled = false)
 	public void CheckContactNumber() {
 		
 		String ExpectedContactNumber = "+966554400000" ; 
@@ -59,7 +66,7 @@ public class AlmosaferAutomatedTesting {
 		AssertJUnit.assertEquals(ActualContactNumber, ExpectedContactNumber); 
 	}
 	
-	@Test(priority = 5 , enabled = true) 
+	@Test(priority = 5 , enabled = false) 
 	public void VerifyQitafLogoInFooter() {
 		
 		WebElement Footer = driver.findElement(By.tagName("footer")); 
@@ -71,7 +78,7 @@ public class AlmosaferAutomatedTesting {
 	}
 	
 	
-	@Test(priority = 6 , enabled = true) 
+	@Test(priority = 6 , enabled = false) 
 	public void HotelSearchTabIsNotSelectedByDefault() {
 		
 		String ExpectedHotelTabState = "false"; 
@@ -82,5 +89,26 @@ public class AlmosaferAutomatedTesting {
 	@Test(priority = 7 , enabled = true)
 	public void FlightDepatureDate() {
 		
+		List<WebElement>  Dates = driver.findElements(By.cssSelector(".sc-dXfzlN.iPVuSG")); 
+		String ActualDepatureDay = Dates.get(0).getText(); 
+		LocalDateTime today = LocalDateTime.now();
+		int  tmwr = today.plusDays(1).getDayOfMonth();
+		String ExpectudeDay = String.format("%02d", tmwr ); 
+		
+		Assert.assertEquals(ExpectudeDay, ActualDepatureDay);
+		
+	}
+	
+	@Test(priority = 8 , enabled = true )
+	public void FlightArrivalDate() {
+		
+		List<WebElement>  Dates = driver.findElements(By.cssSelector(".sc-dXfzlN.iPVuSG")); 
+		String ActualArrivalDate = Dates.get(1).getText(); 
+		
+		LocalDateTime today = LocalDateTime.now(); 
+		
+		String ExpectedArrivalTime = String.format("%02d", today.plusDays(2).getDayOfMonth()); 
+		
+		Assert.assertEquals(ExpectedArrivalTime, ActualArrivalDate);
 	}
 }

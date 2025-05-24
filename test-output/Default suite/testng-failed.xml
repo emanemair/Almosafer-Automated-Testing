@@ -5,8 +5,8 @@
     <classes>
       <class name="AlmosaferAutomatedTesting">
         <methods>
+          <include name="FlightArrivalDate"/>
           <include name="mySetup"/>
-          <include name="CheckCurrency"/>
         </methods>
       </class> <!-- AlmosaferAutomatedTesting -->
     </classes>
