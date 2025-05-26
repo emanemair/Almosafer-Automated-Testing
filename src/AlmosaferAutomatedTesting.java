@@ -20,13 +20,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class AlmosaferAutomatedTesting {
+public class AlmosaferAutomatedTesting extends TestData{
 
 	
-	String URL = "https://www.almosafer.com/en";
-	String WebSiteLang = ""; 
-	WebDriver driver = new ChromeDriver(); 
-	Random rand = new Random(); 
 	
 	@BeforeTest
 	public void mySetup() {
