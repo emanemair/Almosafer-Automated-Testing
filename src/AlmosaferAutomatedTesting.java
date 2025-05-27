@@ -25,11 +25,8 @@ public class AlmosaferAutomatedTesting extends TestData{
 	
 	
 	@BeforeTest
-	public void mySetup() {
-		
-		driver.get(URL); 
-		driver.manage().window().maximize();
-		
+	public void mySetup() {	
+		Setup();
 	}
 	
 	@Test(priority = 1 , enabled = true)
@@ -43,7 +40,6 @@ public class AlmosaferAutomatedTesting extends TestData{
 	@Test (priority = 2 , enabled = false)
 	public void CheckLanguage() {
 		
-		String ExpectedLang = "en"; 
 		String ActualLang = driver.findElement(By.tagName("html")).getDomAttribute("lang"); 
 		AssertJUnit.assertEquals(ActualLang, ExpectedLang);
 		
@@ -52,16 +48,13 @@ public class AlmosaferAutomatedTesting extends TestData{
 	@Test (priority = 3 , enabled = false)
 	public void CheckCurrency() {
 		
-		String ExpectedCurrency = "SAR"; 
-		
 		String ActualCurrency = driver.findElement(By.xpath("//div[@data-testid='Header__CurrencySelector']")).getText();
 		AssertJUnit.assertEquals(ActualCurrency, ExpectedCurrency);
 	}
 	
 	@Test(priority = 4 , enabled = false)
 	public void CheckContactNumber() {
-		
-		String ExpectedContactNumber = "+966554400000" ; 
+	
 		String ActualContactNumber  = driver.findElement(By.xpath("//div[@style='direction:ltr;order:1']")).getText(); 
 		AssertJUnit.assertEquals(ActualContactNumber, ExpectedContactNumber); 
 	}
@@ -72,7 +65,6 @@ public class AlmosaferAutomatedTesting extends TestData{
 		WebElement Footer = driver.findElement(By.tagName("footer")); 
 		WebElement QitafLogo = Footer.findElement(By.xpath("//img[@alt='qitaf']")); 
 		Boolean ActualQitafLogoResult = QitafLogo.isDisplayed(); 
-		Boolean ExppectedQitafLogoResult = true; 
 		
 		Assert.assertEquals(ActualQitafLogoResult, ExppectedQitafLogoResult); 
 	}
@@ -81,7 +73,6 @@ public class AlmosaferAutomatedTesting extends TestData{
 	@Test(priority = 6 , enabled = false) 
 	public void HotelSearchTabIsNotSelectedByDefault() {
 		
-		String ExpectedHotelTabState = "false"; 
 		String ActualHotelTabState = driver.findElement(By.id("tab-hotels")).getDomAttribute("aria-selected"); 
 		Assert.assertEquals(ActualHotelTabState, ExpectedHotelTabState);
 }
@@ -91,9 +82,7 @@ public class AlmosaferAutomatedTesting extends TestData{
 		
 		List<WebElement>  Dates = driver.findElements(By.cssSelector(".sc-dXfzlN.iPVuSG")); 
 		String ActualDepatureDay = Dates.get(0).getText(); 
-		LocalDateTime today = LocalDateTime.now();
-		int  tmwr = today.plusDays(1).getDayOfMonth();
-		String ExpectudeDay = String.format("%02d", tmwr ); 
+	
 		
 		Assert.assertEquals(ExpectudeDay, ActualDepatureDay);
 		
@@ -104,24 +93,13 @@ public class AlmosaferAutomatedTesting extends TestData{
 		
 		List<WebElement>  Dates = driver.findElements(By.cssSelector(".sc-dXfzlN.iPVuSG")); 
 		String ActualArrivalDate = Dates.get(1).getText(); 
-		
-		LocalDateTime today = LocalDateTime.now(); 
-		
-		String ExpectedArrivalTime = String.format("%02d", today.plusDays(2).getDayOfMonth()); 
-		
+	
 		Assert.assertEquals(ExpectedArrivalTime, ActualArrivalDate);
 	}
 	
 	@Test(priority = 9 , enabled = true )
 	public void RandomLanguage() {
-		
-		String[] WebsiteLangs  = {"https://www.almosafer.com/en" , "https://www.almosafer.com/ar"}; 
-		
-		int RandomLang = rand.nextInt(WebsiteLangs.length); 
-		
-		String SelectedWebsiteLang = WebsiteLangs[RandomLang]; 
-		String ExpectedLanguage =  SelectedWebsiteLang.substring(SelectedWebsiteLang.length() - 2); 
-		
+			
 		driver.get(SelectedWebsiteLang);
 		String ActualLang = driver.getCurrentUrl().substring(driver.getCurrentUrl().length() - 2); 
 		WebSiteLang = ActualLang; 
@@ -133,8 +111,6 @@ public class AlmosaferAutomatedTesting extends TestData{
 	@Test(priority = 10 , enabled = true)
 	public void SwitchToHotelTab () throws InterruptedException {
 		
-		String[] LocationEn = {"Duabi" , "Jeddah" , "Riyadh"}; 
-		String [] LocationAr = {"دبي", "جدة"} ;   
 		WebElement HotelTab = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels")); 
 		
 		HotelTab.click();
@@ -183,7 +159,7 @@ public class AlmosaferAutomatedTesting extends TestData{
 		
 		String SearchResult = ResultsElement.getText();
 		Boolean ActualResult = SearchResult.contains("مكان") || SearchResult.contains("stays"); 
-		Boolean ExpectedResut = true; 
+		
 		Assert.assertEquals(ExpectedResut, ActualResult);
 		
 	}
